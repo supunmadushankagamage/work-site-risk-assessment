@@ -50,8 +50,13 @@ with st.form("my_form"):
                  ['Work Zone Location', False, True, False],
                  ['Work Zone Vehicle Operating Time', False, True, False]]
 
-    for q in questions:
-        choice = st.selectbox(q[0], ['High', 'Low', 'Not Applicable'], index=None, key=q)
+    no_not_applicable = [1,2,3,4,5,7,8,9,10,12,13,15,17,18,19,21,23,24,25,27,28,29,35,36,37,38]
+    for i in range(len(questions)):
+        q = questions[i]
+        if i in no_not_applicable:
+            choice = st.selectbox(q[0], ['High', 'Low'], index=None, key=q)
+        else:
+            choice = st.selectbox(q[0], ['High', 'Low', 'Not Applicable'], index=None, key=q)
         choices.append(choice)
 
     submitted = st.form_submit_button('Submit')
