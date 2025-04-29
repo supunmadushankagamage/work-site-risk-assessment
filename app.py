@@ -66,6 +66,10 @@ with st.form("my_form"):
             st.error('Please select an option for all questions before submitting.')
         else:
             st.success('Form submitted successfully!')
+
+            exposure_score = 0
+            severity_score = 0
+            likelihood_score = 0
             # Do whatever you want with the data
             X_1 = []
             X_2 = []
@@ -81,6 +85,11 @@ with st.form("my_form"):
                         X_2.append(1)
                     else:
                         X_2.append(0)
+
+                    if choice == "High":
+                        exposure_score += 2
+                    elif choice == "Low":
+                        exposure_score += 1
                 else:
                     X_2.append(0)
 
@@ -90,6 +99,11 @@ with st.form("my_form"):
                         X_2.append(1)
                     else:
                         X_2.append(0)
+
+                    if choice == "High":
+                        severity_score += 2
+                    elif choice == "Low":
+                        severity_score += 1
                 else:
                     X_2.append(0)
 
@@ -99,6 +113,11 @@ with st.form("my_form"):
                         X_2.append(1)
                     else:
                         X_2.append(0)
+
+                    if choice == "High":
+                        likelihood_score += 2
+                    elif choice == "Low":
+                        likelihood_score += 1
                 else:
                     X_2.append(0)
 
@@ -114,6 +133,8 @@ with st.form("my_form"):
 
             input_X_1 = [X_1]
             input_X_2 = [X_2]
+
+            statistical_score = exposure_score * severity_score * likelihood_score
 
             # ['High' 'Low' 'Medium'] => 0, 1, 2
 
@@ -173,6 +194,8 @@ with st.form("my_form"):
                 # Show as a nice table
                 st.subheader("📝 Model Predictions")
                 st.dataframe(results_df[['Model', 'Prediction']], use_container_width=True)
+
+                st.subheader(f"Statistical score: {statistical_score}")
             else:
                 # ================== Fancy Card View =====================================
                 st.subheader("🚦 Model Predictions")
@@ -202,3 +225,4 @@ with st.form("my_form"):
                             """,
                             unsafe_allow_html=True
                         )
+                st.subheader(f"Statistical score: {statistical_score}")
