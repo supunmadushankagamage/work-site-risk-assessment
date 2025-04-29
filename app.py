@@ -128,11 +128,12 @@ with st.form("my_form"):
                         X_1.append(1)
                     else:
                         X_1.append(0)
-            print(X_1, len(X_1))
-            print(X_2, len(X_2))
 
             input_X_1 = [X_1]
             input_X_2 = [X_2]
+
+            print(input_X_1, len(X_1))
+            print(input_X_2, len(X_2))
 
             statistical_score = exposure_score * severity_score * likelihood_score
 
@@ -163,17 +164,17 @@ with st.form("my_form"):
                 print("random_forest_classifier_2", output)
                 results['Random Forest Classifier 2'] = output[0]
 
-            with open('models/xgb_classifier_1.pkl', 'rb') as f:
-                xgb_classifier_1 = pickle.load(f)
-                output = xgb_classifier_1.predict(input_X_1)
-                print("xgb_classifier_1", output)
-                results['XGBoost Classifier 1'] = output[0]
+            # with open('models/xgb_classifier_1.pkl', 'rb') as f:
+            #     xgb_classifier_1 = pickle.load(f)
+            #     output = xgb_classifier_1.predict(input_X_1)
+            #     print("xgb_classifier_1", output)
+            #     results['XGBoost Classifier 1'] = output[0]
 
-            with open('models/xgb_classifier_2.pkl', 'rb') as f:
-                xgb_classifier_2 = pickle.load(f)
-                output = xgb_classifier_2.predict(input_X_2)
-                print("xgb_classifier_2", output)
-                results['XGBoost Classifier 2'] = output[0]
+            # with open('models/xgb_classifier_2.pkl', 'rb') as f:
+            #     xgb_classifier_2 = pickle.load(f)
+            #     output = xgb_classifier_2.predict(input_X_2)
+            #     print("xgb_classifier_2", output)
+            #     results['XGBoost Classifier 2'] = output[0]
 
             table_view = True
 
