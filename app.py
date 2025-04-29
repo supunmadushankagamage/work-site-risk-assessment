@@ -54,9 +54,9 @@ with st.form("my_form"):
     for i in range(len(questions)):
         q = questions[i]
         if i in no_not_applicable:
-            choice = st.selectbox(q[0], ['High', 'Low'], index=None, key=q)
+            choice = st.selectbox(q[0], ['High', 'Low'], index=0, key=q)
         else:
-            choice = st.selectbox(q[0], ['High', 'Low', 'Not Applicable'], index=None, key=q)
+            choice = st.selectbox(q[0], ['High', 'Low', 'Not Applicable'], index=0, key=q)
         choices.append(choice)
 
     submitted = st.form_submit_button('Submit')
