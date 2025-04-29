@@ -12,7 +12,7 @@ with st.form("my_form"):
     questions = [['AADT (Annual Average Daily Traffic)', True, False, False],
                  ['Absence Barricade Boards', False, False, True],
                  ['Absence Road Humps with Road Markings', False, False, True],
-                 ['Absence Rumble Strips', True, False, True],
+                 ['Absence Rumble Strips', False, False, True],
                  ['Absence Traffic Cones', False, False, True],
                  ['Absence Warning Lighting Devices ', False, False, True],
                  ['Absence of Crash Barriers', False, True, False],
@@ -54,9 +54,9 @@ with st.form("my_form"):
     for i in range(len(questions)):
         q = questions[i]
         if i in no_not_applicable:
-            choice = st.selectbox(q[0], ['High', 'Low'], index=0, key=q)
+            choice = st.selectbox(q[0], ['High', 'Low'], index=None, key=q)
         else:
-            choice = st.selectbox(q[0], ['High', 'Low', 'Not Applicable'], index=0, key=q)
+            choice = st.selectbox(q[0], ['High', 'Low', 'Not Applicable'], index=None, key=q)
         choices.append(choice)
 
     submitted = st.form_submit_button('Submit')
@@ -136,6 +136,7 @@ with st.form("my_form"):
             print(input_X_2, len(X_2))
 
             statistical_score = exposure_score * severity_score * likelihood_score
+            print(exposure_score, severity_score, likelihood_score)
 
             # ['High' 'Low' 'Medium'] => 0, 1, 2
 
@@ -176,7 +177,7 @@ with st.form("my_form"):
                 print("xgb_classifier_2", output)
                 results['XGBoost Classifier 2'] = output[0]
 
-            table_view = True
+            table_view = False
 
             if table_view:
                 # ==================== Stylish Table View =================================
@@ -206,12 +207,15 @@ with st.form("my_form"):
                     if prediction == 0:
                         color = 'red'
                         prediction_text = "High Risk"
+                        description = "The site poses severe hazards and cannot be operated. Immediate closure is required to prevent fatal accidents."
                     elif prediction == 1:
                         color = 'green'
                         prediction_text = "Low Risk"
+                        description = "The site is not safe to operate in its current state but can be improved with safety modifications for short-term operation."
                     elif prediction == 2:
                         color = 'yellow'
                         prediction_text = "Medium Risk"
+                        description = "The site can be operated with minor safety concerns that do not pose major hazards"
                     else:
                         raise Exception("Error")
 
@@ -222,6 +226,7 @@ with st.form("my_form"):
                             <div style="background-color: {color}; padding: 10px; border-radius: 10px; margin-bottom: 10px;">
                                 <h4 style="color: black;">{model_name}</h4>
                                 <h2 style="color: black;">Prediction: {prediction_text}</h2>
+                                <p style="color: black;">{description}</p>
                             </div>
                             """,
                             unsafe_allow_html=True
