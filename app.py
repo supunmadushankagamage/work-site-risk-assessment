@@ -50,7 +50,7 @@ with st.form("my_form"):
                  ['Work Zone Location', False, True, False],
                  ['Work Zone Vehicle Operating Time', False, True, False]]
 
-    no_not_applicable = [1,2,3,4,5,7,8,9,10,12,15,17,18,19,21,23,24,25,27,28,29,35,36,37,38]
+    no_not_applicable = [1,2,3,4,5,7,8,9,10,13,15,17,18,19,21,23,24,25,27,28,29,35,36,37,38]
     for i in range(len(questions)):
         q = questions[i]
         if i in no_not_applicable:
