@@ -147,35 +147,35 @@ with st.form("my_form"):
                 print("decision_tree_1", output)
                 results['Decision Tree 1'] = output[0]
 
-            # with open('models/decision_tree_2.pkl', 'rb') as f:
-            #     decision_tree_2 = pickle.load(f)
-            #     output = decision_tree_2.predict(input_X_2)
-            #     print("decision_tree_2", output)
-            #     results['Decision Tree 2'] = output[0]
+            with open('models/decision_tree_2.pkl', 'rb') as f:
+                decision_tree_2 = pickle.load(f)
+                output = decision_tree_2.predict(input_X_2)
+                print("decision_tree_2", output)
+                results['Decision Tree 2'] = output[0]
 
-            # with open('models/random_forest_classifier_1.pkl', 'rb') as f:
-            #     random_forest_classifier_1 = pickle.load(f)
-            #     output = random_forest_classifier_1.predict(input_X_1)
-            #     print("random_forest_classifier_1", output)
-            #     results['Random Forest Classifier 1'] = output[0]
+            with open('models/random_forest_classifier_1.pkl', 'rb') as f:
+                random_forest_classifier_1 = pickle.load(f)
+                output = random_forest_classifier_1.predict(input_X_1)
+                print("random_forest_classifier_1", output)
+                results['Random Forest Classifier 1'] = output[0]
 
-            # with open('models/random_forest_classifier_2.pkl', 'rb') as f:
-            #     random_forest_classifier_2 = pickle.load(f)
-            #     output = random_forest_classifier_2.predict(input_X_2)
-            #     print("random_forest_classifier_2", output)
-            #     results['Random Forest Classifier 2'] = output[0]
+            with open('models/random_forest_classifier_2.pkl', 'rb') as f:
+                random_forest_classifier_2 = pickle.load(f)
+                output = random_forest_classifier_2.predict(input_X_2)
+                print("random_forest_classifier_2", output)
+                results['Random Forest Classifier 2'] = output[0]
 
-            # with open('models/xgb_classifier_1.pkl', 'rb') as f:
-            #     xgb_classifier_1 = pickle.load(f)
-            #     output = xgb_classifier_1.predict(input_X_1)
-            #     print("xgb_classifier_1", output)
-            #     results['XGBoost Classifier 1'] = output[0]
+            with open('models/xgb_classifier_1.pkl', 'rb') as f:
+                xgb_classifier_1 = pickle.load(f)
+                output = xgb_classifier_1.predict(input_X_1)
+                print("xgb_classifier_1", output)
+                results['XGBoost Classifier 1'] = output[0]
 
-            # with open('models/xgb_classifier_2.pkl', 'rb') as f:
-            #     xgb_classifier_2 = pickle.load(f)
-            #     output = xgb_classifier_2.predict(input_X_2)
-            #     print("xgb_classifier_2", output)
-            #     results['XGBoost Classifier 2'] = output[0]
+            with open('models/xgb_classifier_2.pkl', 'rb') as f:
+                xgb_classifier_2 = pickle.load(f)
+                output = xgb_classifier_2.predict(input_X_2)
+                print("xgb_classifier_2", output)
+                results['XGBoost Classifier 2'] = output[0]
 
             table_view = False
 
