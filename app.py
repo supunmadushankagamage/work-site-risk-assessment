@@ -138,7 +138,7 @@ with st.form("my_form"):
             statistical_score = exposure_score * severity_score * likelihood_score
             print(exposure_score, severity_score, likelihood_score)
 
-            # ['High' 'Low' 'Medium'] => 0, 1, 2
+            ['High' 'Low' 'Medium'] => 0, 1, 2
 
             # results = {}
             # with open('models/decision_tree_1.pkl', 'rb') as f:
