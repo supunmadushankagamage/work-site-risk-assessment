@@ -211,11 +211,11 @@ with st.form("my_form"):
                     elif prediction == 1:
                         color = 'green'
                         prediction_text = "Low Risk"
-                        description = "The site is not safe to operate in its current state but can be improved with safety modifications for short-term operation."
+                        description = "The site can be operated with minor safety concerns that do not pose major hazards"
                     elif prediction == 2:
                         color = 'yellow'
                         prediction_text = "Medium Risk"
-                        description = "The site can be operated with minor safety concerns that do not pose major hazards"
+                        description = "The site is not safe to operate in its current state but can be improved with safety modifications for short-term operation."
                     else:
                         raise Exception("Error")
 
