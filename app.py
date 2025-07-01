@@ -135,8 +135,8 @@ with st.form("my_form"):
             print(input_X_1, len(X_1))
             print(input_X_2, len(X_2))
 
-            statistical_score = exposure_score * severity_score * likelihood_score
-            print(exposure_score, severity_score, likelihood_score)
+            statistical_score = exposure_score/6 * severity_score/28 * likelihood_score/46
+            print(exposure_score/6, severity_score/28, likelihood_score/46)
 
             # ['High' 'Low' 'Medium'] => 0, 1, 2
 
